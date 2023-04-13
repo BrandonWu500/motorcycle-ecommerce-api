@@ -4,7 +4,7 @@ const Product = require("../models/Product");
 // @route GET /products
 // @access Public
 const getAllProducts = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().lean();
   return res.json(products);
 };
 
@@ -13,7 +13,7 @@ const getAllProducts = async (req, res) => {
 // @access Public
 const getProduct = async (req, res) => {
   const { id } = req.params;
-  const product = await Product.findById(id);
+  const product = await Product.findById(id).lean().exec();
 
   if (!product) return res.status(404).json({ message: "Product not found" });
 
