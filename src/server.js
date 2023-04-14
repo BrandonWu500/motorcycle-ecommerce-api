@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 3500;
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
+app.use("/payments", paymentRoutes);
 
 app.use(errorHandler);
 
