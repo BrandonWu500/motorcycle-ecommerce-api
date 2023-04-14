@@ -9,8 +9,6 @@ const orderSchema = new mongoose.Schema({
           required: true,
           ref: "Product",
         },
-      },
-      {
         quantity: {
           type: Number,
           required: true,
